@@ -1,0 +1,10 @@
+{
+  "name": "angular-bootstrap-material",
+    "version": "1.0.0",
+    "devDependencies": {
+      "grunt": "~0.4.1",
+      "grunt-cli": "~0.1.13",
+      "grunt-contrib-jshint": "~0.6.0",
+      "grunt-contrib-uglify": "~0.3.2"
+    }
+}
