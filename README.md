@@ -3,13 +3,19 @@ Angular directives for [FezVrasta/bootstrap-material-design](https://github.com/
 
 ## Getting Started
 
-Install via Bower:
+1. Install via Bower:
 
 ```
 bower install --save git@github.com:heyflock/angular-bootstrap-material.git#master
 ```
 
-Add `flock.bootstrap.material` to your main module's list:
+2. Add the JavaScript to your HTML file:
+
+```html
+<script src="bower_components/angular-bootstrap-material.js/angular-bootstrap-material.js"></script>
+```
+
+3. Add `flock.bootstrap.material` to your main module's list:
 
 ```js
 angular.module('myApp', [
@@ -33,9 +39,6 @@ Directives will automatically be applied to the following elements:
 ```css
 .withripples
 .with-ripples
-```
-
-or elements with a `with-ripples` attribute:
-```html
-<a with-ripples href="">Link</a>
+.btn
+.card-image
 ```
