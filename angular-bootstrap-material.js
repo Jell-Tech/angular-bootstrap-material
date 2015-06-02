@@ -30,16 +30,22 @@
     module.directive(inputElements[i], inputDirective);
   }
 
+
   var ripplesDirective = [function() {
     return {
-      restrict: 'AC',
+      restrict: 'C',
       link: function($scope, $element) {
+        if ($element.hasClass('withoutripple')) {
+          return;
+        }
         $.material.ripples($element);
       }
     };
   }];
 
-  module.directive('withripples', ripplesDirective);
   module.directive('withRipples', ripplesDirective);
+  module.directive('withripples', ripplesDirective);
+  module.directive('cardImage', ripplesDirective);
+  module.directive('btn', ripplesDirective);
 
 })();
