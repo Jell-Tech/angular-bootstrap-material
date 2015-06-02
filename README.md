@@ -3,19 +3,15 @@ Angular directives for [FezVrasta/bootstrap-material-design](https://github.com/
 
 ## Getting Started
 
-1. Install via Bower:
-
+- Install via Bower:
 ```
 bower install --save git@github.com:heyflock/angular-bootstrap-material.git#master
 ```
-
-2. Add the JavaScript to your HTML file:
-
+- Add the JavaScript to your HTML file:
 ```html
 <script src="bower_components/angular-bootstrap-material.js/angular-bootstrap-material.js"></script>
 ```
-
-3. Add `flock.bootstrap.material` to your main module's list:
+- Add `flock.bootstrap.material` to your main module's list:
 
 ```js
 angular.module('myApp', [
