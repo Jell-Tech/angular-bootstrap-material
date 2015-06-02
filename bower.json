@@ -1,0 +1,24 @@
+{
+  "name": "angular-bootstrap-material",
+  "version": "1.0.0",
+  "main": "angular-bootstrap-material.min.js",
+  "homepage": "https://github.com/heyflock/angular-bootstrap-material",
+  "authors": [
+    "Flock <team@heyflock.com>"
+  ],
+  "description": "Angular directives for FezVrasta/bootstrap-material-design",
+  "keywords": [
+    "angular",
+    "material desgin",
+    "bootstrap",
+    "bootstrap material"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
