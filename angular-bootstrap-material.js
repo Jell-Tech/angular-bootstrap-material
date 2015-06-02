@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var module = angular.module('flock.bootstrap.material');
+  var module = angular.module('flock.bootstrap.material', []);
 
   var inputElements = [
     'input',
