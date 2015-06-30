@@ -35,7 +35,7 @@
     return {
       restrict: 'C',
       link: function($scope, $element) {
-        if ($element.hasClass('withoutripple')) {
+        if ($element.hasClass('withoutripple') || $element.hasClass('btn-link')) {
           return;
         }
         $.material.ripples($element);
