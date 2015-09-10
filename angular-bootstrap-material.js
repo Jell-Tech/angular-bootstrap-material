@@ -9,17 +9,21 @@
     'select'
   ];
 
-  var inputDirective = [function() {
+  var inputDirective = ['$timeout', function($timeout) {
     return {
       restrict: 'E',
       link: function($scope, $element) {
         if ($element.hasClass('form-control')) {
-          $.material.input($element);
+          $timeout(function(){
+            $.material.input($element);
+          });
         } else {
           var type = $element.attr('type');
           var func = $.material[type];
           if (typeof(func) === 'function') {
-            func($element);
+            $timeout(function(){
+              func($element);
+            });
           }
         }
       }
@@ -31,14 +35,17 @@
   }
 
 
-  var ripplesDirective = [function() {
+  var ripplesDirective = ['$timeout', function($timeout) {
     return {
       restrict: 'C',
       link: function($scope, $element) {
         if ($element.hasClass('withoutripple') || $element.hasClass('btn-link')) {
           return;
         }
-        $.material.ripples($element);
+
+        $timeout(function(){
+          $.material.ripples($element);
+        });
       }
     };
   }];
