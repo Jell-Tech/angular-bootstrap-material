@@ -21,9 +21,16 @@ module.exports = (grunt) ->
       default:
         files: 
           'dist/angular-bootstrap-material.min.js': ['dist/angular-bootstrap-material.js']
-      
+
+    watch:
+      build:
+        files: ['src/*.coffee']
+        tasks: ['build']
 
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-coffeelint'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
-  grunt.registerTask 'default', ['coffeelint', 'coffee', 'uglify:default']
+  grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.registerTask 'default', ['build', 'coffee', 'uglify:default']
+  grunt.registerTask 'build', ['coffeelint', 'coffee', 'uglify:default']
+  grunt.registerTask 'serve', ['watch:build']
