@@ -35,7 +35,7 @@ toggleButtonDirective = ['$timeout', ($timeout) ->
   link: ($scope, $element) ->
     input = $($element[0]).find('label > input[type=checkbox]')
     $timeout ->
-      $.material.togglebutton $element
+      $.material.togglebutton input
       return
     return
 ]

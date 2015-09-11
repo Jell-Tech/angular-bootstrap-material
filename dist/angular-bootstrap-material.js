@@ -48,7 +48,7 @@
           var input;
           input = $($element[0]).find('label > input[type=checkbox]');
           $timeout(function() {
-            $.material.togglebutton($element);
+            $.material.togglebutton(input);
           });
         }
       };
