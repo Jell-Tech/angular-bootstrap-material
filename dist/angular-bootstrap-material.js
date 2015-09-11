@@ -1,46 +1,35 @@
 (function() {
   'use strict';
-  var directiveName, i, inputDirective, inputElements, len, module, ripplesDirective, toggleButtonDirective;
+  var module, ripplesDirective;
 
   module = angular.module('flock.bootstrap.material', []);
 
-  inputElements = ['input', 'textarea', 'select'];
 
-  inputDirective = [
+  /*
+   * Add Form Control directive
+   */
+
+  module.directive('formControl', [
     '$timeout', function($timeout) {
       return {
-        restrict: 'E',
+        restrict: 'C',
         link: function($scope, $element) {
-          var func, type;
-          if ($element.hasClass('form-control')) {
-            $timeout(function() {
-              $.material.input($element);
-            });
-          } else {
-            type = $element.attr('type');
-            func = $.material[type];
-            if (typeof func === 'function') {
-              $timeout(function() {
-                func($element);
-              });
-            }
-          }
+          var input;
+          input = $($element[0]);
+          $timeout(function() {
+            $.material.input(input);
+          });
         }
       };
     }
-  ];
-
-  for (i = 0, len = inputElements.length; i < len; i++) {
-    directiveName = inputElements[i];
-    module.directive(directiveName, inputDirective);
-  }
+  ]);
 
 
   /*
    * Add toggle button directive
    */
 
-  toggleButtonDirective = [
+  module.directive('togglebutton', [
     '$timeout', function($timeout) {
       return {
         restrict: 'C',
@@ -53,13 +42,51 @@
         }
       };
     }
-  ];
-
-  module.directive('togglebutton', toggleButtonDirective);
+  ]);
 
 
   /*
-   * Ripple Directives
+   * Add radio button directive
+   */
+
+  module.directive('radio', [
+    '$timeout', function($timeout) {
+      return {
+        restrict: 'C',
+        link: function($scope, $element) {
+          var input;
+          input = $($element[0]).find('label > input[type=radio]');
+          $timeout(function() {
+            $.material.radio(input);
+          });
+        }
+      };
+    }
+  ]);
+
+
+  /*
+   * Add checkbox directive
+   */
+
+  module.directive('checkbox', [
+    '$timeout', function($timeout) {
+      return {
+        restrict: 'C',
+        link: function($scope, $element) {
+          var input;
+          input = $($element[0]).find('label > input[type=checkbox]');
+          $timeout(function() {
+            $.material.checkbox(input);
+          });
+        }
+      };
+    }
+  ]);
+
+
+  /*
+   * Ripple Directive Handler
    */
 
   ripplesDirective = [

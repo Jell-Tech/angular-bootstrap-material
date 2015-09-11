@@ -2,35 +2,23 @@
 
 module = angular.module('flock.bootstrap.material', [])
 
-inputElements = [
-  'input'
-  'textarea'
-  'select'
-]
-
-inputDirective = ['$timeout', ($timeout) ->
-  restrict: 'E'
+###
+# Add Form Control directive
+###
+module.directive 'formControl', ['$timeout', ($timeout) ->
+  restrict: 'C'
   link: ($scope, $element) ->
-    if $element.hasClass('form-control')
-      $timeout ->
-        $.material.input $element
-        return
-    else
-      type = $element.attr('type')
-      func = $.material[type]
-      if typeof func == 'function'
-        $timeout ->
-          func $element
-          return
+    input = $($element[0])
+    $timeout ->
+      $.material.input input
+      return
     return
 ]
-
-module.directive(directiveName, inputDirective) for directiveName in inputElements
 
 ###
 # Add toggle button directive
 ###
-toggleButtonDirective = ['$timeout', ($timeout) ->
+module.directive 'togglebutton', ['$timeout', ($timeout) ->
   restrict: 'C'
   link: ($scope, $element) ->
     input = $($element[0]).find('label > input[type=checkbox]')
@@ -40,10 +28,34 @@ toggleButtonDirective = ['$timeout', ($timeout) ->
     return
 ]
 
-module.directive 'togglebutton', toggleButtonDirective
+###
+# Add radio button directive
+###
+module.directive 'radio', ['$timeout', ($timeout) ->
+  restrict: 'C'
+  link: ($scope, $element) ->
+    input = $($element[0]).find('label > input[type=radio]')
+    $timeout ->
+      $.material.radio input
+      return
+    return
+]
 
 ###
-# Ripple Directives
+# Add checkbox directive
+###
+module.directive 'checkbox', ['$timeout', ($timeout) ->
+  restrict: 'C'
+  link: ($scope, $element) ->
+    input = $($element[0]).find('label > input[type=checkbox]')
+    $timeout ->
+      $.material.checkbox input
+      return
+    return
+]
+
+###
+# Ripple Directive Handler
 ###
 ripplesDirective = ['$timeout', ($timeout) ->
   restrict: 'C'
