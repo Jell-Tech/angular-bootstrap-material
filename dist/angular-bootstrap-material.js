@@ -35,6 +35,11 @@
     module.directive(directiveName, inputDirective);
   }
 
+
+  /*
+   * Add toggle button directive
+   */
+
   toggleButtonDirective = [
     '$timeout', function($timeout) {
       return {
@@ -43,7 +48,7 @@
           var input;
           input = $($element[0]).find('label > input[type=checkbox]');
           $timeout(function() {
-            $.material.ripples($element);
+            $.material.togglebutton($element);
           });
         }
       };
