@@ -1,7 +1,7 @@
 {
   "name": "angular-bootstrap-material",
   "version": "0.1.0",
-  "main": "dist/angular-bootstrap-material.min.js",
+  "main": "angular-bootstrap-material.min.js",
   "homepage": "https://github.com/heyflock/angular-bootstrap-material",
   "authors": [
     "Flock <team@heyflock.com>"
@@ -14,7 +14,6 @@
     "bootstrap material"
   ],
   "dependencies": {
-    "angular": "~1.4.*",
     "bootstrap-material-design": "~0.3.0"
   },
   "license": "MIT",
