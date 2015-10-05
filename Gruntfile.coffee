@@ -1,13 +1,36 @@
 module.exports = (grunt) -> 
   grunt.initConfig
-    jshint:
-      files: ['*.js', '!*.min.js']
+    coffeelint:
+      app: [
+        'src/*.coffee'
+      ]
+      options:
+        max_line_length:
+          level: 'ignore'
+
+    coffee:
+      options:
+        sourceMap: true
+      compile:
+        src: ['src/angular-bootstrap-material.coffee']
+        dest: 'dist/angular-bootstrap-material.js'
+        ext: '.js'
+
+
     uglify:
       default:
         files: 
-          'angular-bootstrap-material.min.js': ['angular-bootstrap-material.js']
-      
+          'dist/angular-bootstrap-material.min.js': ['dist/angular-bootstrap-material.js']
 
-  grunt.loadNpmTasks 'grunt-contrib-jshint'
+    watch:
+      build:
+        files: ['src/*.coffee']
+        tasks: ['build']
+
   grunt.loadNpmTasks 'grunt-contrib-uglify'
-  grunt.registerTask 'default', ['jshint', 'uglify:default']
+  grunt.loadNpmTasks 'grunt-coffeelint'
+  grunt.loadNpmTasks 'grunt-contrib-coffee'
+  grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.registerTask 'default', ['build', 'coffee', 'uglify:default']
+  grunt.registerTask 'build', ['coffeelint', 'coffee', 'uglify:default']
+  grunt.registerTask 'serve', ['watch:build']
