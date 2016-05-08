@@ -3,22 +3,24 @@ Angular directives for [FezVrasta/bootstrap-material-design](https://github.com/
 
 ## Getting Started
 
-- Install via Bower:
-```
-bower install --save git@github.com:heyflock/angular-bootstrap-material.git#master
-```
-- Add the JavaScript to your HTML file:
-```html
-<script src="bower_components/angular-bootstrap-material.js/angular-bootstrap-material.js"></script>
-```
-- Add `flock.bootstrap.material` to your main module's list:
+1. Install via Bower:
 
-```js
-angular.module('myApp', [
-  // ...
-  'flock.bootstrap.material'
-]);
-```
+  ```
+  bower install --save git@github.com:heyflock/angular-bootstrap-material.git#master
+  ```
+2. Add the JavaScript to your HTML file:
+
+  ```html
+  <script src="bower_components/angular-bootstrap-material/angular-bootstrap-material.js"></script>
+  ```
+3. Add `flock.bootstrap.material` to your main module's list:
+
+  ```js
+  angular.module('myApp', [
+    // ...
+    'flock.bootstrap.material'
+  ]);
+  ```
 
 ## Form Elements
 Directives will automatically be applied to the following elements:
