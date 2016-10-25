@@ -50,7 +50,7 @@
       restrict: 'C',
       link: function($scope, $element) {
         $element.find('input[type=checkbox]').each(function() {
-          $.material.togglebutton($(this));
+          $.material.checkbox($(this));
         });
       }
     };
@@ -61,6 +61,7 @@
       restrict: 'C',
       link: function($scope, $element) {
         var inputs = $element.find('label input[type=checkbox]');
+
         if (inputs.length) {
           $.material.togglebutton($(inputs[0]));
         }
