@@ -17,9 +17,11 @@
           $.material.input($element);
         } else {
           var type = $element.attr('type');
-          var func = $.material[type];
-          if (typeof(func) === 'function') {
-            func($element);
+          if (type !== 'checkbox') {
+            var func = $.material[type];
+            if (typeof(func) === 'function') {
+              func($element);
+            }
           }
         }
       }
@@ -42,6 +44,34 @@
       }
     };
   }];
+
+  var checkboxDirective = [function() {
+    return {
+      restrict: 'C',
+      link: function($scope, $element) {
+        $element.find('input[type=checkbox]').each(function() {
+          $.material.togglebutton($(this));
+        });
+      }
+    };
+  }];
+
+  var toggleButtonDirective = [function() {
+    return {
+      restrict: 'C',
+      link: function($scope, $element) {
+        var inputs = $element.find('label input[type=checkbox]');
+        if (inputs.length) {
+          $.material.togglebutton($(inputs[0]));
+        }
+      }
+    };
+  }];
+
+  module.directive('togglebutton', toggleButtonDirective);
+
+  module.directive('checkbox', checkboxDirective);
+  module.directive('checkboxInline', checkboxDirective);
 
   module.directive('withRipples', ripplesDirective);
   module.directive('withripples', ripplesDirective);
