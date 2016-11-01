@@ -15,6 +15,8 @@
       link: function($scope, $element) {
         if ($element.hasClass('form-control')) {
           $.material.input($element);
+          //Attach event listeners
+          $.material.attachInputEventHandlers();
         } else {
           var type = $element.attr('type');
           if (type !== 'checkbox') {
